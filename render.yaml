@@ -2,7 +2,7 @@ services:
   - type: web
     name: rallyfml
     runtime: docker
-    plan: 0.5c-512mb
+    plan: free
     region: virginia
     dockerfilePath: ./Dockerfile
     dockerContext: .
@@ -31,7 +31,6 @@ databases:
   - name: rallyfml-db
     databaseName: rallyfml
     user: rally
-    plan: 0.1c-256mb
-    diskSizeGB: 1
+    plan: free
     region: virginia
     postgresMajorVersion: "17"
