@@ -82,7 +82,9 @@ async function refreshExpired() {
 }
 
 const port = Number(process.env.PORT ?? 3000);
-httpServer.listen(port, () => console.log(`RallyFML API listening on ${port}`));
+httpServer.listen(port, "0.0.0.0", () =>
+  console.log(`RallyFML API listening on ${port}`),
+);
 const timer = setInterval(
   () =>
     void refreshExpired().catch(() =>

@@ -12,5 +12,5 @@ WORKDIR /app
 ENV NODE_ENV=production
 RUN corepack enable && corepack prepare pnpm@12.9.0 --activate
 COPY --from=build /app ./
-EXPOSE 3000
+EXPOSE 10000
 CMD ["sh", "-c", "pnpm --filter @rally/api db:migrate && pnpm --filter @rally/api start"]

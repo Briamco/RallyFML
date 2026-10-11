@@ -41,6 +41,12 @@ pnpm test:e2e
 
 Playwright espera que el frontend esté disponible en `http://localhost:5173`; instala Chromium una vez con `pnpm exec playwright install chromium`. `PLAYWRIGHT_BASE_URL` permite cambiar la dirección.
 
+## Render
+
+El Blueprint `render.yaml` define un servicio web Docker que sirve React, la API y Socket.IO en el mismo origen, más PostgreSQL 17. Ambos recursos se crean en Virginia; el servicio queda en una instancia porque Socket.IO no usa un adaptador compartido. Render configura `PUBLIC_ORIGIN` con la URL HTTPS del servicio, genera `SESSION_SECRET` y `CREDENTIAL_PEPPER`, y aplica las migraciones al arrancar.
+
+Para desplegar, crea un **Blueprint** en Render y conecta `Briamco/RallyFML`. Proporciona un `BOOTSTRAP_SECRET` largo al crear los recursos, abre la URL que Render asigne y configura la cuenta de administración. Después elimina `BOOTSTRAP_SECRET` de las variables del servicio. Revisa los planes y costos antes de aplicar el Blueprint: usa planes pagos para mantener el servicio activo y evitar la expiración de la base de datos. [Render Blueprint](https://render.com/docs/blueprint-spec) · [Planes gratuitos y sus límites](https://render.com/docs/free).
+
 ## Railway
 
 Despliega el `Dockerfile` como un servicio y agrega PostgreSQL gestionado. Configura `DATABASE_URL`, `SESSION_SECRET`, `CREDENTIAL_PEPPER`, `BOOTSTRAP_SECRET` y `PUBLIC_ORIGIN` como variables del servicio. `PUBLIC_ORIGIN` debe ser el origen HTTPS exacto asignado por Railway. Las migraciones se aplican antes de iniciar el servidor. Tras crear la cuenta de administración, elimina `BOOTSTRAP_SECRET`.
