@@ -1,0 +1,23 @@
+{
+  "name": "rallyfml",
+  "private": true,
+  "packageManager": "pnpm@12.9.0",
+  "scripts": {
+    "dev": "turbo run dev --parallel",
+    "build": "turbo run build",
+    "lint": "prettier --check \"**/*.{ts,tsx,css,json,yml,yaml}\"",
+    "format": "prettier --write \"**/*.{ts,tsx,css,json,yml,yaml}\"",
+    "typecheck": "turbo run typecheck",
+    "test": "turbo run test",
+    "test:e2e": "playwright test",
+    "db:generate": "pnpm --filter @rally/api db:generate",
+    "db:migrate": "pnpm --filter @rally/api db:migrate"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "prettier": "^3.6.2",
+    "turbo": "^2.5.6",
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
+  }
+}

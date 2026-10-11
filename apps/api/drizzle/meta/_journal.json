@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1791670716454,
+      "tag": "0000_spooky_zodiak",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1791675110455,
+      "tag": "0001_global-timing-and-trivia-options",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1791679743301,
+      "tag": "0002_superb_warstar",
+      "breakpoints": true
+    }
+  ]
+}
